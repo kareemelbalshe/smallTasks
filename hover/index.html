@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+      div {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: aqua;
+      }
+      .p{
+        position: relative;
+      }
+      .c{
+        position: absolute;
+        transition: 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="p" id="p">
+      <div class="c" id="c1" style="background-color: blue"></div>
+      <div class="c" id="c2" style="background-color: red"></div>
+      <div class="c" id="c3" style="background-color: black"></div>
+      <div class="c" id="c4" style="background-color: chocolate"></div>
+      <div class="c"></div>
+    </div>
+    <script>
+      let p = document.getElementById("p");
+      let c1 = document.getElementById("c1");
+      let c2 = document.getElementById("c2");
+      let c3 = document.getElementById("c3");
+      let c4 = document.getElementById("c4");
+      p.addEventListener("mouseenter", () => {
+        document.getElementById("c1").style.transform="translate(100px,100px)"
+        document.getElementById("c2").style.transform="translate(-100px,100px)"
+        document.getElementById("c3").style.transform="translate(100px,-100px)"
+        document.getElementById("c4").style.transform="translate(-100px,-100px)"
+        p.addEventListener("mouseleave",()=>{
+          setTimeout(()=>{
+            document.getElementById("c1").style.transform="translate(0,0)"
+            document.getElementById("c2").style.transform="translate(0,0)"
+            document.getElementById("c3").style.transform="translate(0,0)"
+            document.getElementById("c4").style.transform="translate(0,0)"
+          },3000)
+        })
+      });
+      p.addEventListener("click", () => {
+        document.getElementById("c1").style.transform="translate(100px,100px)"
+        document.getElementById("c2").style.transform="translate(-100px,100px)"
+        document.getElementById("c3").style.transform="translate(100px,-100px)"
+        document.getElementById("c4").style.transform="translate(-100px,-100px)"
+        p.addEventListener("mouseleave",()=>{
+          setTimeout(()=>{
+            document.getElementById("c1").style.transform="translate(0,0)"
+            document.getElementById("c2").style.transform="translate(0,0)"
+            document.getElementById("c3").style.transform="translate(0,0)"
+            document.getElementById("c4").style.transform="translate(0,0)"
+          },3000)
+        })
+      });
+      
+    </script>
+  </body>
+</html>

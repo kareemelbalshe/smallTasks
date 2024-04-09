@@ -1,0 +1,64 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-color: blue;
+}
+.div0{
+    background-color: rgb(92, 68, 68);
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 36%;
+    width: 400px;
+    padding: 30px;
+}
+.form{
+    padding: 5px;
+    margin-bottom: 15px;
+}
+.textview{
+    height:49px ;
+    width: 332px;
+    pointer-events: none;
+    padding:10px;
+    color: black;
+}
+.div1::before, .div1::after{
+    content:'';
+    width: 100%;
+    display: table;
+    clear: both;
+}
+.div2{
+    width: 25%;
+    padding: 5px;
+    float: left;
+}
+.div3{
+    width: 50%;
+    padding: 0PX 5px;
+    float: left;
+}
+.button{
+    width: 100%;
+    height: 40px;
+    outline: none;
+}
+.button.top-button{
+    background-color: #7e15b3;
+    border-color: #d6cece;
+    color: #fff;
+}
+.button.equal{
+    background-color: #423d3d;
+    color: #fff;
+    font-size: 22px;
+}
+.button.operator{
+    background-color: #546968;
+    color: #fff;
+    border-color: #775b5b;
+    font-size: 20px;
+}

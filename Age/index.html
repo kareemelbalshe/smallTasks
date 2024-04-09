@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="NP">
+      <a href="../Accordions/index.html">Previous</a>
+      <a href="../index.html">Home</a>
+      <a href="../Animated Images Website/index.html">Next</a>
+    </div>
+    <div class="parent">
+      <div class="inp">
+        <input type="date" name="" id="input" placeholder="day/month/year" />
+        <button id="button" onclick="calc()">Result</button>
+      </div>
+      <ul>
+        <li><span>00</span>years</li>
+        <li><span>00</span>months</li>
+        <li><span>00</span>days</li>
+        <li><span>00</span>hours</li>
+        <li><span>00</span>minutes</li>
+        <li><span>00</span>seconds</li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      var dateBtn = document.getElementById("button");
+      var dateDiv = document.getElementById("div");
+      var theDate = new Date();
+      var month = theDate.getMonth();
+      var day = theDate.getDate();
+      var year = theDate.getFullYear();
+      var span = document.querySelectorAll("span");
+      function calc() {
+        var date = new Date(),
+          hours = date.getHours(),
+          minutes = date.getMinutes(),
+          seconds = date.getSeconds();
+
+        var dat = window.input.value,
+          arr = dat.split("-"),
+          arr0 = eval(arr[2]),
+          arr1 = eval(arr[1]),
+          arr2 = eval(arr[0]),
+          userDay = 30 + day - arr0,
+          userMonth = 12 + month - arr1,
+          userYear = year - 1 - arr2;
+
+        if (arr[1] == null) {
+          span.textContent.display = "none";
+        }
+        if (userDay >= 30) {
+          userDay = 0 + (userDay % 30);
+          userMonth = userMonth + 1;
+        } else {
+          userDay = userDay;
+          userMonth = userMonth;
+        }
+        if (userMonth >= 12) {
+          userMonth = userMonth % 12;
+          userYear += 1;
+        } else {
+          userMonth = userMonth;
+          userYear = userYear;
+        }
+        if (hours < 10) {
+          hours = "0" + hours;
+        }
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        if (userDay < 10) {
+          userDay = "0" + userDay;
+        }
+        if (userMonth < 10) {
+          userMonth = "0" + userMonth;
+        }
+        if (userYear < 10) {
+          userYear = "0" + userYear;
+        }
+        span[0].textContent = userYear;
+        span[1].textContent = userMonth;
+        span[2].textContent = userDay;
+        span[3].textContent = hours;
+        span[4].textContent = minutes;
+        span[5].textContent = seconds;
+        setInterval(calc, 1000);
+      }
+    </script>
+  </body>
+</html>
